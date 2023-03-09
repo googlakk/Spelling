@@ -38,7 +38,7 @@ const Game = () => {
 
   const getWordsList = () => {
     axios.get(
-      `http://localhost:3001/${stage.title.toLowerCase()}/${levelId}`
+      `https://spellint.herokuapp.com/api/${stage.title.toLowerCase()}/${levelId}`
     ).then((res) => {
       setWords(res.data.words)
     })
