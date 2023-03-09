@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
+
 import Dialog from '@mui/material/Dialog';
 import HelpIcon from '@mui/icons-material/Help';
+
 
 import Btn from '../../modules/Buttons'
 import styles from './AnswerModal.module.scss';
 import BtnCheck from '../../modules/CheckButtons';
+import firework from '../../../assets/img/2eSd.gif'
+
 const AnswerModal = ({ open, correct, word, setOpen, nextWord }) => {
+
   const [help, setHelp] = useState(false)
   const onClick = () => {
     setHelp(!help)
@@ -24,7 +29,9 @@ const AnswerModal = ({ open, correct, word, setOpen, nextWord }) => {
       open={open}
     >
       <div className={correct ? styles.modalBody : styles.modalBodyError}>
-        
+        {
+          correct ? <img className={styles.firework} src={firework} alt="" /> : ''
+        }
         <div className={styles.modalMsg}>
           {
             !correct ? help ? word : (

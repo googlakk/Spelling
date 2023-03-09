@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useSpeechSynthesis } from 'react-speech-kit'
 import axios from 'axios'
+import useSound from 'use-sound';
 
 import stages from '../../utils/stages'
 import levels from '../../utils/levels'
@@ -10,8 +11,15 @@ import styles from './Game.module.scss'
 import Btn from '../modules/Buttons'
 import AnswerModal from './AnswerModal'
 import BtnCheck from '../modules/CheckButtons'
+import unCorrectAudio from '../../assets/audio/572936__bloodpixelhero__error.mp3'
+import CorrectAudio from '../../assets/audio/277021__sandermotions__applause-2.mp3'
+
+
 const Game = () => {
   const { speak, voices } = useSpeechSynthesis();
+  const [playOff] = useSound(unCorrectAudio);
+  const [playOn, {stop}] = useSound(CorrectAudio);
+
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
 
@@ -46,7 +54,7 @@ const Game = () => {
 
   const playSound = (sound) => {
     if (sound) {
-      speak({ text: sound, voice: voices[1], rate: 0.45, pitch: 0.75 })
+      speak({ text: sound, voice: voices[3], rate: 0.8, pitch: 0.75 })
     }
   }
 
@@ -61,6 +69,7 @@ const Game = () => {
     if (prevWords.includes(newWord)) {
       return nextWord()
     }
+    stop()
     setCurrentWord(newWord)
     playSound(newWord)
   }
@@ -68,7 +77,9 @@ const Game = () => {
   const checkWord = () => {
     if (inputValue.toLowerCase() !== currentWord.toLowerCase()) {
       setCorrect(false)
+      playOff()
     } else {
+      playOn()
       setCorrect(true)
       setInputValue('')
     }
