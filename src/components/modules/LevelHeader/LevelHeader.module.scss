@@ -1,0 +1,218 @@
+.header {
+    width: 100%;
+    height: 270px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    background-image: url('../../../assets/img/game-bg.png');
+    background-size: cover;
+    border-radius: 50px;
+
+    .logo {
+        width: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .logoImg {
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    .text {
+        width: 30%;
+
+        .stage {
+            background: rgb(255, 140, 0);
+            border-radius: 15px;
+            font-size: 58px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .age {
+            margin-top: 20px;
+            text-align: center;
+            background: rgb(0, 149, 255);
+            border-radius: 15px;
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+    }
+
+    .level {
+        width: 35%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .levelImg {
+            width: 270px;
+            height: 200px;
+        }
+    }
+
+    .btns {
+        width: 10%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+        .item {
+            width: 50px;
+            height: 50px;
+            background-size: 100%;
+            border-radius: 50%;
+            border: none;
+            cursor: url('../../../assets/img/icons8-hand.png'), pointer;
+        }
+
+        .play {
+            background-image: url('../../../assets/img/playpng.png');
+        }
+
+        .home {
+            background-image: url('../../../assets/img/home.png');
+        }
+
+        .prev {
+            background-image: url('../../../assets/img/prev.png');
+        }
+    }
+}
+
+@media (width< 768px) {
+    .header {
+        width: 90%;
+        height: 150px;
+        padding: 10px;
+        display: flex;
+        gap: 25px;
+
+        .logo {
+            width: 20%;
+            margin-left: 20px;
+
+            .logoImg {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        .text {
+            width: 200px;
+            margin-left: 15px;
+            padding: 0px 5px;
+
+            .stage {
+                font-size: 21px;
+            }
+
+            .age {
+                font-size: 18px;
+            }
+        }
+
+        .btns {
+            margin-left: 5px;
+
+            .item {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        .level {
+            width: 25%;
+
+            .levelImg {
+                width: 100px;
+                height: 70px;
+            }
+        }
+    }
+}
+
+@media (width < 550px) {
+    .header {
+        width: 90%;
+        height: 150px;
+        padding: 10px;
+        display: flex;
+        gap: 25px;
+
+        .logo {
+            width: 10%;
+            margin-left: 20px;
+
+            .logoImg {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        .text {
+            width: 250px;
+            margin-left: 5px;
+            .stage {
+                font-size: 21px;
+            }
+
+            .age {
+                font-size: 18px;
+            }
+        }
+
+        .btns {
+            margin-left: 5px;
+
+            .item {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        .level {
+            width: 20%;
+
+            .levelImg {
+                width: 100px;
+                height: 70px;
+            }
+        }
+    }
+
+}
+
+@media (width < 320px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        background-image: url('../../../assets/img/game-bg.png');
+        background-size: 90% 270px;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 90%;
+        row-gap: 15px;
+        height: 270px;
+
+        .btns {
+            margin-top: 15px;
+            flex-direction: row;
+            width: 70%;
+            column-gap: 15px;
+            display: flex;
+            justify-content: center;
+
+            .item {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}

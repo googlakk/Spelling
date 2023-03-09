@@ -1,0 +1,55 @@
+.container {
+  max-width: 1336px;
+  margin: 0 auto;
+  z-index: 99;
+  position:-webkit-sticky; position:sticky; top:0;
+  height: 0px;
+
+  header .navbar span {
+    font-size: 28px;
+    text-decoration: none;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 38px;
+    padding: 10px 0;
+
+    .link {
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+
+      .logo {
+        width: 100px;
+        height: 100px;
+        padding-left: 50px;
+      }
+    }
+  }
+  
+  .navbar strong {
+    font-size: 38px;
+    font-weight: 900;
+    color: rgb(255, 140, 0);
+  }
+  
+  header ul.nav {
+    font-size: 28px;
+    font-weight: 500;
+    display: flex;
+    list-style: none;
+  }
+  
+  header ul.nav li {
+    margin-left: 25px;
+    cursor: url('../../assets/img/icons8-hand.png'), auto;
+    transition: 0.3s;
+  }
+  
+  header ul.nav li:hover {
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,144 @@
+// .btn {
+//     text-align: center;
+//     color: rgb(255, 255, 255);
+//     font-size: 28px;
+//     font-weight: 900;
+//     width: 100%;
+//     height: 80px;
+//     padding: 0;
+//     background: rgb(50, 34, 195);
+//     background: linear-gradient(27deg, rgba(50, 34, 195, 1) 17%, rgba(253, 187, 45, 1) 92%);
+//     transition: all 0.4s ease-in-out;
+//     box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.512);
+//     border-radius: 15px;
+//     border: none;
+//     cursor: url('../../../assets/img/icons8-hand.png'), auto;
+// }
+.button {
+    width: 100%;
+    min-height: 60px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: #0805b6;
+    background: linear-gradient(90deg, rgb(230, 206, 129) 0%, rgb(223, 145, 1) 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(79, 209, 197, 0.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+}
+
+button::before {
+    content: '';
+    border-radius: 100px;
+    width: 100%;
+    min-height: 60px;
+    border: 6px solid #ffffff;
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.button:hover,
+.button:focus {
+    color: #313133;
+    transform: translateY(-6px);
+}
+
+button:hover::before,
+button:focus::before {
+    opacity: 1;
+}
+
+button::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 6px solid #003af770;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+    z-index: -1;
+}
+
+button:hover::after,
+button:focus::after {
+    animation: none;
+    display: none;
+}
+
+@keyframes ring {
+    0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+    }
+}
+
+@keyframes animate {
+    0% {
+        border-radius: 60% 40% 30% 70%/ 60% 30% 70% 40%;
+    }
+    50% {
+        border-radius: 30% 60% 70% 40%/ 50% 60% 30% 60%;
+    }
+    100% {
+        border-radius: 60% 40% 30% 70%/ 60% 30% 70% 40%;
+    }
+}
+@media (width < 1550px) {
+    .btn {
+            font-size: 21px;
+        }
+    
+        @keyframes ring {
+            0% {
+                width: 30px;
+                height: 30px;
+                opacity: 1;
+            }
+    
+            100% {
+                width: 150px;
+                height: 150px;
+                opacity: 0;
+            }
+        }
+}
+@media (width < 768px) {
+    .btn {
+        font-size: 21px;
+    }
+    @keyframes ring {
+        0% {
+            width: 30px;
+            height: 30px;
+            opacity: 1;
+        }
+        100% {
+            width: 150px;
+            height: 150px;
+            opacity: 0;
+        }
+    }
+}

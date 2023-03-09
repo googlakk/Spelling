@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Tilt Warp', cursive;
+    background-image: url("./assets/img/deffaultBG.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #fff;
+    cursor: url('./assets/img/icons8-курсор.svg'), auto;
+}

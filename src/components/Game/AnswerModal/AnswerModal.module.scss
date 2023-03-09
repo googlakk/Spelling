@@ -1,0 +1,138 @@
+.modal {
+    div[role='dialog'] {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.041), rgba(0, 0, 0, 0.115));
+        color: white;
+        border-radius: 8px;
+    }
+    .modalBodyError {
+        background: no-repeat center url('../../../assets/img/nocorrectBG.png');
+        background-size: 450px 400px;
+        width: 450px;
+        height: 400px;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        .modalMsg {
+            font-weight: 900;
+            font-size: 36px;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            .helpBtn {
+                font-weight: 500;
+                font-size: 26px;
+                letter-spacing: 2px;
+                display: flex;
+                align-items: center;
+                border: none;
+                color: #fff;
+                .helpIcon {
+                    width: 80px;
+                    height: 80px;
+                    margin-left: 6px;
+                }
+            }
+        }
+        .nextBtn {
+            width: 150px;
+            height: 70px;
+            .btn {
+                font-size: 22px;
+            }
+        }
+    }
+    .modalBody {
+        background: no-repeat center url('../../../assets/img/correctBG.png');
+        background-size: 450px 400px;
+        width: 450px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        .modalMsg {
+            font-weight: 900;
+            font-size: 36px;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            .helpBtn {
+                font-weight: 500;
+                font-size: 26px;
+                letter-spacing: 2px;
+                display: flex;
+                align-items: center;
+                border: none;
+                background: none;
+                color: #fff;
+                .helpIcon {
+                    width: 30px;
+                    height: 30px;
+                    margin-left: 6px;
+                }
+            }
+        }
+        .nextBtn {
+            width: 150px;
+            height: 70px;
+            .btn {
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+@media (width < 768px) {
+    .modal {
+        margin-top: 30px;
+        .modalBody {
+            background-size: 300px 300px;
+            height: 300px;
+            width: 300px;
+            .modalMsg {
+                font-size: 26px;
+            }
+        }
+        .modalBodyError {
+            background-size: 300px 300px;
+            height: 300px;
+            width: 300px;
+            .modalMsg {
+                font-size: 26px;
+            }
+        }
+    }
+}
+
+@media (width < 320px) {
+    .modal {
+        margin-top: 230px;
+        border-radius: 50px;
+        .modalBody {
+            border-radius: 50px;
+            background-size: 240px 290px;
+            height: 290px;
+            width: 230px;
+            .modalMsg {
+                font-size: 21px;
+            }
+        }
+        .modalBodyError {
+            border-radius: 40px;
+            background-size: 100% 380px;
+            overflow-x: hidden;
+            height: 380px;
+            width: 230px;
+            .modalMsg {
+                padding: 2px;
+                font-size: 18px;
+            }
+        }
+        .nextBtn {
+            width: 80px;
+            height: 40px;
+        }
+    }
+}
