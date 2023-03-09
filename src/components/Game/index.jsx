@@ -69,9 +69,10 @@ const Game = () => {
     if (prevWords.includes(newWord)) {
       return nextWord()
     }
+    playSound(newWord)
+
     stop()
     setCurrentWord(newWord)
-    playSound(newWord)
   }
 
   const checkWord = () => {
