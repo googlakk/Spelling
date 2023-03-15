@@ -4,6 +4,7 @@ import { useSpeechSynthesis } from 'react-speech-kit'
 import axios from 'axios'
 import useSound from 'use-sound';
 
+import sounds from '../../utils/sounds';
 import stages from '../../utils/stages'
 import levels from '../../utils/levels'
 import LevelHeader from '../modules/LevelHeader/LevelHeader'
@@ -19,7 +20,7 @@ const Game = () => {
   const { speak, voices } = useSpeechSynthesis();
   const [playOff] = useSound(unCorrectAudio);
   const [playOn, {stop}] = useSound(CorrectAudio);
-
+  const [play] = useSound(sounds)
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
 
@@ -28,6 +29,7 @@ const Game = () => {
   const levelId = searchParams.get('level');
   const levelImg = levels[levelId - 1].img;
 
+  const [sound, setSound] = useState('');
   const [words, setWords] = useState([]);
   const [currentWord, setCurrentWord] = useState('');
   const [prevWords] = useState([]);
@@ -51,13 +53,16 @@ const Game = () => {
   const onChange = (e) => {
     setInputValue(e.target.value)
   }
-
+  // const playSound = (sound) => {
+  //   if (sound) {
+  //     speak({ text: sound, voice: voices[3], rate: 0.8, pitch: 0.75 })
+  //   }
+  // }
   const playSound = (sound) => {
     if (sound) {
-      speak({ text: sound, voice: voices[3], rate: 0.8, pitch: 0.75 })
+      sound.play()
     }
   }
-
   const nextWord = (correct) => {
     if (currentWord && correct) {
       prevWords.push(currentWord)
@@ -69,10 +74,13 @@ const Game = () => {
     if (prevWords.includes(newWord)) {
       return nextWord()
     }
-    playSound(newWord)
 
     stop()
     setCurrentWord(newWord)
+    const newSound = sounds.find((sound) => sound.includes(newWord))
+    const audio = new Audio(newSound)
+    setSound(audio)
+    playSound(audio)
   }
 
   const checkWord = () => {
@@ -89,7 +97,7 @@ const Game = () => {
 
   return (
     <div className={styles.container}>
-      <LevelHeader stage={stage} levelImg={levelImg} playSound={() => playSound(currentWord)} />
+      <LevelHeader stage={stage} levelImg={levelImg} playSound={() => playSound(sound)} />
       <div className={styles.playground}>
         {
           !currentWord
