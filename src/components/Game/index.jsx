@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { useSpeechSynthesis } from 'react-speech-kit'
+// import { useSpeechSynthesis } from 'react-speech-kit'
 import axios from 'axios'
 import useSound from 'use-sound';
 
@@ -17,7 +17,7 @@ import CorrectAudio from '../../assets/audio/277021__sandermotions__applause-2.m
 
 
 const Game = () => {
-  const { speak, voices } = useSpeechSynthesis();
+  // const { speak, voices } = useSpeechSynthesis();
   const [playOff] = useSound(unCorrectAudio);
   const [playOn, {stop}] = useSound(CorrectAudio);
   const [play] = useSound(sounds)
@@ -40,7 +40,7 @@ const Game = () => {
 
   const getWordsList = () => {
     axios.get(
-      `https://spellint.herokuapp.com/api/${stage.title.toLowerCase()}/${levelId}`
+      `http://localhost:3001/${stage.title.toLowerCase()}/${levelId}`
     ).then((res) => {
       setWords(res.data.words)
     })
@@ -84,7 +84,7 @@ const Game = () => {
   }
 
   const checkWord = () => {
-    if (inputValue.toLowerCase() !== currentWord.toLowerCase()) {
+    if (inputValue.toLowerCase().trim() !== currentWord.toLowerCase().trim()) {
       setCorrect(false)
       playOff()
     } else {
