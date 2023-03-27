@@ -40,7 +40,7 @@ const Game = () => {
 
   const getWordsList = () => {
     axios.get(
-      `http://localhost:3001/${stage.title.toLowerCase()}/${levelId}`
+      `http://spellint.com/3001/api/${stage.title.toLowerCase()}/${levelId}`
     ).then((res) => {
       setWords(res.data.words)
     })
