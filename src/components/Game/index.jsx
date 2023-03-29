@@ -77,7 +77,7 @@ const Game = () => {
 
     stop()
     setCurrentWord(newWord)
-    const newSound = sounds.find((sound) => sound.includes(newWord))
+    const newSound = sounds.find((sound) => sound.includes(`/${newWord}.`))
     const audio = new Audio(newSound)
     setSound(audio)
     playSound(audio)
