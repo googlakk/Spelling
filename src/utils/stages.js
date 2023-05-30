@@ -2,17 +2,17 @@ const stages = [
   {
     id: 1,
     title: 'Kids',
-    age: '7-10 years',
+    age: '8-10 years',
   },
   {
     id: 2,
     title: 'Junior',
-    age: '11-13 years',
+    age: '11-12 years',
   },
   {
     id: 3,
     title: 'Senior',
-    age: '14-17 years',
+    age: '13-17 years',
   },
 ];
 

@@ -13,13 +13,13 @@ import Btn from '../modules/Buttons'
 import AnswerModal from './AnswerModal'
 import BtnCheck from '../modules/CheckButtons'
 import unCorrectAudio from '../../assets/audio/572936__bloodpixelhero__error.mp3'
-import CorrectAudio from '../../assets/audio/277021__sandermotions__applause-2.mp3'
+import CorrectAudio from '../../assets/audio/2corr-audio.mp3'
 
 
 const Game = () => {
   // const { speak, voices } = useSpeechSynthesis();
   const [playOff] = useSound(unCorrectAudio);
-  const [playOn, {stop}] = useSound(CorrectAudio);
+  const [playOn, { stop }] = useSound(CorrectAudio);
   const [play] = useSound(sounds)
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -40,12 +40,12 @@ const Game = () => {
 
   const getWordsList = () => {
     axios.get(
-      `https://spellint.herokuapp.com/api/${stage.title.toLowerCase()}/${levelId}`
+      `http://localhost:3001/${stage.title.toLowerCase()}/${levelId}`
     ).then((res) => {
       setWords(res.data.words)
     })
   }
-
+ 
   useEffect(() => {
     getWordsList()
   }, [])
@@ -61,6 +61,7 @@ const Game = () => {
   const playSound = (sound) => {
     if (sound) {
       sound.play()
+    
     }
   }
   const nextWord = (correct) => {
@@ -84,15 +85,19 @@ const Game = () => {
   }
 
   const checkWord = () => {
-    if (inputValue.toLowerCase().trim() !== currentWord.toLowerCase().trim()) {
-      setCorrect(false)
-      playOff()
-    } else {
-      playOn()
-      setCorrect(true)
-      setInputValue('')
-    }
+    playOn()
+    setCorrect(true)
+    setInputValue('')
     setOpen(true)
+    // if (inputValue.toLowerCase().trim() !== currentWord.toLowerCase().trim()) {
+    //   setCorrect(false)
+    //   playOff()
+    // } else {
+    //   playOn()
+    //   setCorrect(true)
+    //   setInputValue('')
+    // }
+    // setOpen(true)
   }
 
   return (
@@ -104,16 +109,8 @@ const Game = () => {
             ? <Btn title={'START'} onClick={nextWord} className={styles.startBtn} />
             : (
               <div className={styles.playForm}>
-                <input
-                  autoFocus={true}
-                  name='word'
-                  type='text'
-                  onChange={onChange}
-                  value={inputValue}
-                  className={styles.playInput}
-                  autoComplete={false}
-                />
-                <BtnCheck title={'Check'} onClick={checkWord} className={styles.startBtn} />
+                <label className={styles.playWord}>{currentWord}</label>
+                <BtnCheck title={'Next'} onClick={checkWord} className={styles.startBtn} />
               </div>
             )
         }
